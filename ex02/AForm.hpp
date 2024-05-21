@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 13:08:58 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 18:19:23 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 13:59:12 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include <iostream>
+# include <stdexcept>
 # include "Bureaucrat.hpp"
 
 # define LOWGRADE 150
@@ -43,6 +44,7 @@ class AForm
 		std::string		getName(void) const;
 
 		void			beSigned(Bureaucrat &bureaucrat);
+		void			checkIfCanExecute(Bureaucrat const &executor) const;
 		virtual void	execute(Bureaucrat const &bureaucrat) = 0;
 		
 		class GradeTooHighException : public std::exception

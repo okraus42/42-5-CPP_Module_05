@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 13:08:58 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 17:54:43 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 14:02:00 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 # include <iostream>
+# include <fstream>
 # include "AForm.hpp"
 
 class Bureaucrat;
@@ -30,8 +31,14 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 
 		ShrubberyCreationForm(const std::string target);
-
+		
 		void	execute(Bureaucrat const &bureaucrat);
+
+		class outfileException : public std::exception
+		{
+			public:
+				const char*		what() const throw();
+		};
 };
 
 #endif

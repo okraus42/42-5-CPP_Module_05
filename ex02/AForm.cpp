@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:30:55 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 17:14:47 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 12:50:24 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,13 @@ void	AForm::beSigned(Bureaucrat &bureaucrat)
 		throw(GradeTooLowException());
 }
 
-// void	AForm::execute(Bureaucrat &bureaucrat)
-// {
-// 	if (bureaucrat.getGrade() <= this->_execGrade)
-// 		this->_signed = true;
-// 	else
-// 		throw(GradeTooLowException());
-// }
+void	AForm::checkIfCanExecute(Bureaucrat const &executor) const
+{
+	if (this->_signed == false)
+		throw(FormNotSignedException());
+	else if (this->getExecGrade() < executor.getGrade())
+		throw(GradeTooLowException());
+}
 
 const char* AForm::GradeTooLowException::what() const throw()
 {

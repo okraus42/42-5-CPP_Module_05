@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:30:55 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 18:20:54 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 12:56:39 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "colours.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) :
-	AForm("PresidentialPardonForm", 145, 137), _target("Anonymous")
+	AForm("PresidentialPardonForm", 25, 5), _target("Anonymous")
 {
 	ft_colorize(reinterpret_cast<uintptr_t>(this));
 	std::cout << "Default constructor of the PresidentialPardonForm class called.";
@@ -23,7 +23,7 @@ PresidentialPardonForm::PresidentialPardonForm(void) :
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) :
-	AForm("PresidentialPardonForm", 145, 137), _target(target)
+	AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
 	ft_colorize(reinterpret_cast<uintptr_t>(this));
 	std::cout << "Constructor of the PresidentialPardonForm class called.";
@@ -32,7 +32,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) :
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy):
-	AForm("PresidentialPardonForm", 145, 137), _target(copy._target)
+	AForm("PresidentialPardonForm", 25, 5), _target(copy._target)
 {
 	ft_colorize(reinterpret_cast<uintptr_t>(this));
 	std::cout << "Copy constructor of the PresidentialPardonForm class called.";
@@ -60,12 +60,11 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 void	PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
-
+	AForm::checkIfCanExecute(executor);
 	ft_colorize(reinterpret_cast<uintptr_t>(this));
-	std::cout << "Execution of the PresidentialPardonForm.";
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox.";
 	ft_uncolorize();
 	std::cout << std::endl;
-	(void)executor;
 }
 
 // const char* AForm::FormNotSignedException::what() const throw()

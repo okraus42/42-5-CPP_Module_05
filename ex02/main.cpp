@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:52:35 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 18:18:37 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 13:33:19 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,182 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
+
+	std::cout << std::endl << "PPF not signed" << std::endl;
+	try
+	{
+		PresidentialPardonForm	ppf("Arthur Dent");
+		std::cout << ppf << std::endl;
+		Bureaucrat bur1("bur1", 148);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(ppf);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(ppf);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "PPF not executed" << std::endl;
+	try
+	{
+		PresidentialPardonForm	ppf("Arthur Dent");
+		std::cout << ppf << std::endl;
+		Bureaucrat bur1("bur1", 20);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(ppf);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(ppf);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "PPF executed" << std::endl;
+	try
+	{
+		PresidentialPardonForm	ppf("Arthur Dent");
+		std::cout << ppf << std::endl;
+		Bureaucrat bur1("bur1", 20);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(ppf);
+		Bureaucrat bur2("bur2", 5);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(ppf);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "ROBOTOMY" << std::endl;
+	try
+	{
+		RobotomyRequestForm	rbtm("Bender");
+		std::cout << rbtm << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+
+	std::cout << std::endl << "RBTM not signed" << std::endl;
+	try
+	{
+		RobotomyRequestForm	rbtm("Bender");
+		std::cout << rbtm << std::endl;
+		Bureaucrat bur1("bur1", 148);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(rbtm);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(rbtm);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "RBTM not executed" << std::endl;
+	try
+	{
+		RobotomyRequestForm	rbtm("Bender");
+		std::cout << rbtm << std::endl;
+		Bureaucrat bur1("bur1", 20);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(rbtm);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(rbtm);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "RBTM executed" << std::endl;
+	try
+	{
+		RobotomyRequestForm	rbtm("Bender");
+		std::cout << rbtm << std::endl;
+		Bureaucrat bur1("bur1", 20);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(rbtm);
+		Bureaucrat bur2("bur2", 5);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(rbtm);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "Shrubbery" << std::endl;
+	try
+	{
+		ShrubberyCreationForm	shrub("Domestic");
+		std::cout << shrub << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+
+	std::cout << std::endl << "Shrubbery not signed" << std::endl;
+	try
+	{
+		ShrubberyCreationForm	shrub("Domestic");
+		std::cout << shrub << std::endl;
+		Bureaucrat bur1("bur1", 148);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(shrub);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(shrub);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "Shrubbery not executed" << std::endl;
+	try
+	{
+		ShrubberyCreationForm	shrub("Domestic");
+		std::cout << shrub << std::endl;
+		Bureaucrat bur1("bur1", 140);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(shrub);
+		Bureaucrat bur2("bur2", 140);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(shrub);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "Shrubbery executed" << std::endl;
+	try
+	{
+		ShrubberyCreationForm	shrub("Domestic");
+		std::cout << shrub << std::endl;
+		Bureaucrat bur1("bur1", 140);
+		std::cout << bur1 << std::endl;
+		bur1.signForm(shrub);
+		Bureaucrat bur2("bur2", 135);
+		std::cout << bur2 << std::endl;
+		bur2.executeForm(shrub);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return (0);
 }

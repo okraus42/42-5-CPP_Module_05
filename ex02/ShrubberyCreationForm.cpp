@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:30:55 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/19 18:20:37 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 13:58:14 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,25 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-
+	AForm::checkIfCanExecute(executor);
 	ft_colorize(reinterpret_cast<uintptr_t>(this));
-	std::cout << "Execution of the ShrubberyCreationForm.";
+	std::cout << " Creating shrubbery in " << this->_target << "_shrubbery.";
 	ft_uncolorize();
 	std::cout << std::endl;
-	(void)executor;
+	 // Create and open a text file
+	std::ofstream MyFile((this->_target + "_shrubbery").c_str());
+	//check if file was opend succesfully
+	if (!MyFile.is_open())
+		throw(outfileException());
+	// Write to the file
+	MyFile << "Files can be tricky, but it is fun enough!\n";
+
+	// Close the file
+	MyFile.close();
+	
 }
 
-// const char* AForm::FormNotSignedException::what() const throw()
-// {
-// 	return (ERROR_COLOUR "Form is not signed." NO_COLOUR);
-// }
+const char* ShrubberyCreationForm::outfileException::what() const throw()
+{
+	return (ERROR_COLOUR "file could not be created." NO_COLOUR);
+}
