@@ -6,7 +6,7 @@
 /*   By: okraus <okraus@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:30:55 by okraus            #+#    #+#             */
-/*   Updated: 2024/05/21 16:34:51 by okraus           ###   ########.fr       */
+/*   Updated: 2024/05/21 16:34:28 by okraus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 	MyFile << "###########\n";
 	MyFile << "    ###\n";
 	MyFile << "    ###\n";
-
 	// Close the file
 	MyFile.close();
 	
